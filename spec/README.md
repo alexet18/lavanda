@@ -34,6 +34,7 @@ Read it top to bottom once. After that, work from the file you need.
 | 09 | [09-responsive.md](09-responsive.md) | Breakpoints and per-section layout behaviour |
 | 10 | [10-technical.md](10-technical.md) | Stack, file structure, performance budgets, accessibility |
 | 11 | [11-acceptance.md](11-acceptance.md) | Testable acceptance criteria and launch checklist |
+| 12 | [12-as-built.md](12-as-built.md) | **What actually shipped** — deviations, photo gaps, placeholders |
 
 ## 3. Decisions taken so far
 
