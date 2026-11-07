@@ -1,0 +1,52 @@
+[
+  {
+    "id": "place_piatra_neamt",
+    "title": "P. Neamt 2013 071 (9141211314).jpg",
+    "author": "Anturaju Daniel from Romania",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:P._Neamt_2013_071_(9141211314).jpg",
+    "w": 1920,
+    "h": 1278
+  },
+  {
+    "id": "place_neamt_monastery",
+    "title": "Manastirea Neamt - Manastirea Manastirilor.JPG",
+    "author": "Nicolau Flavius Alin",
+    "licence": "CC BY-SA 3.0 ro",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/ro/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Manastirea_Neamt_-_Manastirea_Manastirilor.JPG",
+    "w": 1920,
+    "h": 1280
+  },
+  {
+    "id": "place_bicaz",
+    "title": "Cheile Bicazului, (gorges de bicaz) (2).jpg",
+    "author": "Pierre André",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cheile_Bicazului,_(gorges_de_bicaz)_(2).jpg",
+    "w": 1920,
+    "h": 1289
+  },
+  {
+    "id": "place_red_lake",
+    "title": "Lacu Roșu, Harghita.02.jpg",
+    "author": "Nenea hartia",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lacu_Ro%C8%99u,_Harghita.02.jpg",
+    "w": 1920,
+    "h": 1440
+  },
+  {
+    "id": "place_ceahlau",
+    "title": "Vârful Toaca (Toaca peak), Ceahlău mountains, Romania (52290098053).jpg",
+    "author": "xulescu_g",
+    "licence": "CC BY-SA 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:V%C3%A2rful_Toaca_(Toaca_peak),_Ceahl%C4%83u_mountains,_Romania_(52290098053).jpg",
+    "w": 1920,
+    "h": 1280
+  }
+]

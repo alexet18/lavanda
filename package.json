@@ -1,0 +1,17 @@
+{
+  "name": "pensiunea-lavanda",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Presentation site for Pensiunea Lavanda, Alexandru cel Bun, Neamț",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node tools/serve.mjs"
+  },
+  "dependencies": {
+    "htm": "^3.1.1",
+    "preact": "^11.2.0",
+    "preact-render-to-string": "^6.8.2"
+  },
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,8 @@
+node_modules/
+.npm-cache/
+.shots/
+tools/_grab.mjs
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
