@@ -81,14 +81,30 @@ const remote = `https://github.com/${owner}/${REPO}.git`;
 
 // Authenticate once, in memory, so no token lands in .git/config.
 const basic = Buffer.from(`x-access-token:${TOKEN}`).toString('base64');
+const auth = ['-c', `http.extraheader=AUTHORIZATION: basic ${basic}`];
 
-git(['remote', 'remove', 'origin']);
-git(['remote', 'add', 'origin', remote]);
+const run = (args) => {
+  try {
+    execFileSync('git', args, { stdio: 'inherit' });
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+run(['remote', 'remove', 'origin']);
+run(['remote', 'add', 'origin', remote]);
 
 const branch = execFileSync('git', ['rev-parse', '--abbrev-ref', 'HEAD']).toString().trim();
-if (branch !== BRANCH) git(['branch', '-M', BRANCH]);
+if (branch !== BRANCH) execFileSync('git', ['branch', '-M', BRANCH], { stdio: 'inherit' });
 
-git(['-c', `http.extraheader=AUTHORIZATION: basic ${basic}`, 'push', '-u', 'origin', BRANCH, '--force']);
+if (!run([...auth, 'push', '-u', 'origin', `${BRANCH}:${BRANCH}`])) {
+  console.log('\nplain push rejected — retrying with --force (the remote had content we are replacing)');
+  if (!run([...auth, 'push', '-u', 'origin', `${BRANCH}:${BRANCH}`, '--force'])) {
+    console.error('push failed. Check that the token can write to this repository.');
+    process.exit(1);
+  }
+}
 console.log('pushed');
 
 /* 4. pages --------------------------------------------------------------- */
