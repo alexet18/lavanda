@@ -1,4 +1,4 @@
-import { html } from './ui.js';
+import { html, setBase } from './ui.js';
 import { Header, Footer, Credits } from './components/chrome.js';
 import {
   Hero, House, Rooms, Rates, Table, Events, Tub, Garden, Explore, Stay, Contact,
@@ -64,9 +64,12 @@ const clientData = (base, t) => ({
 const safeJson = (v) => JSON.stringify(v).replace(/</g, '\\u003c');
 
 export function Page({ t, credits, base = '' }) {
+  // Every asset URL below is relative to the page being rendered.
+  setBase(base);
+  const rel = base || './';
   const r = routes(t.locale);
   // Routing is injected at render time so the copy stays purely textual.
-  const tt = { ...t, path: r.self, altPath: r.other };
+  const tt = { ...t, path: r.self, altPath: r.other, base };
 
   return html`
     <html lang=${t.htmlLang}>
@@ -164,14 +167,15 @@ export function Page({ t, credits, base = '' }) {
           dangerouslySetInnerHTML=${{ __html: safeJson(clientData(base, t)) }}
         ></script>
 
+        <!-- Import map values must be paths: a bare "js/preact.mjs" is ignored. -->
         <script
           type="importmap"
           dangerouslySetInnerHTML=${{
             __html: safeJson({
               imports: {
-                preact: `${base}js/preact.mjs`,
-                'preact/hooks': `${base}js/hooks.mjs`,
-                htm: `${base}js/htm.mjs`,
+                preact: `${rel}js/preact.mjs`,
+                'preact/hooks': `${rel}js/hooks.mjs`,
+                htm: `${rel}js/htm.mjs`,
               },
             }),
           }}

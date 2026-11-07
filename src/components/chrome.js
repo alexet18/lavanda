@@ -1,5 +1,4 @@
-import { html } from '../ui.js';
-import { fill } from '../ui.js';
+import { html, asset, fill } from '../ui.js';
 
 /**
  * The header. Transparent over the hero, solid after 80px of scroll.
@@ -20,7 +19,13 @@ export function Header({ t }) {
     <header class="head" data-head>
       <div class="head__inner">
         <a class="brand" href="#top" aria-label="Pensiunea Lavanda">
-          <img class="brand__mark" src="/brand/sprig-64.png" alt="" width="22" height="22" />
+          <img
+            class="brand__mark"
+            src=${asset('brand/sprig-64.png')}
+            alt=""
+            width="22"
+            height="22"
+          />
           <span class="brand__word">Lavanda</span>
         </a>
 
@@ -72,7 +77,7 @@ export function Footer({ t, credits, year }) {
     <footer class="foot">
       <div class="container foot__inner">
         <div class="foot__brand">
-          <img src="/brand/lockup.png" alt="Pensiunea Lavanda" width="140" height="59" />
+          <img src=${asset('brand/lockup.png')} alt="Pensiunea Lavanda" width="140" height="59" />
           <p class="foot__addr">${t.contact.address}</p>
         </div>
 

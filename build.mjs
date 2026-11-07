@@ -87,6 +87,13 @@ for (const { locale, dir, base } of PAGES) {
   const markup = '<!doctype html>\n' + renderToString(
     Page({ t: site[locale], credits, base }),
   );
+
+  // Deploying to github.io/<repo>/ means a root-absolute URL 404s.
+  const absolute = markup.match(/(?:src|href)="\/(?!\/)/g);
+  if (absolute) {
+    problems.push(`${dir}: ${absolute.length} root-absolute URL(s) — these break on a project page`);
+  }
+
   const file = path.join(OUT, dir);
   await mkdir(path.dirname(file), { recursive: true });
   await writeFile(file, markup, 'utf8');

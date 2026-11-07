@@ -12,14 +12,28 @@ import { media } from './content/media.js';
 
 export const html = htm.bind(h);
 
+/**
+ * Path prefix for the page being rendered.
+ *
+ * The site is served from a subpath on GitHub Pages (/lavanda/), so every
+ * asset URL has to be relative: '' at the root, '../' inside /ro/.
+ * Root-absolute paths like /media/x.jpg would resolve to github.io/media/…
+ */
+let BASE = '';
+
+export function setBase(base) {
+  BASE = base ?? '';
+}
+
+/** Asset URL for the current page. */
+export const asset = (p) => `${BASE}${p}`;
+
 /** Fills {placeholders} in a translated string. */
 export const fill = (str, vars = {}) =>
   String(str).replace(/\{(\w+)\}/g, (_, k) => (k in vars ? vars[k] : `{${k}}`));
 
-const BASE = '/media';
-
-/** Absolute-from-root URL for one derivative. */
-export const src = (id, width, ext) => `${BASE}/${id}/${id}-${width}.${ext}`;
+/** Relative URL for one derivative. */
+export const src = (id, width, ext) => `${BASE}media/${id}/${id}-${width}.${ext}`;
 
 const srcset = (id, ext, widths) =>
   widths.map((w) => `${src(id, w, ext)} ${w}w`).join(', ');
